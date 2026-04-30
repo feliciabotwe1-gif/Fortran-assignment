@@ -1,19 +1,25 @@
 Program felicia_botwe   !6309224
 Implicit None
-INTEGER:: Sn,Sc
+INTEGER, DIMENSION(10) :: Score 
+INTEGER :: i
 CHARACTER(len=2):: grade
-Print*,'enter a number'
-Read*,score
-Do Sn=1,10
-If (score>=80) then 
-grade=A
-Else if (score>=60) then
-grade=B
-Else if (score>=40) then
-grade=C
-Else (score>=0) then
-grade=D
-End Do
+CHARACTER(Len=11):: remark
+Do i= 1,10
+Print*,'Enter score for student', i
+Read*, score(i)
+If (score>=80) Then 
+grade= 'A'
+remark= 'Distinction'
+Else if (score>=60) Then
+grade= 'B'
+remark= 'credit'
+Else if (score>=40) Then
+grade= 'C'
+remark= 'pass'
+Else 
+grade= 'F'
+remark= 'fail'
 End If
-End program felicia_botwe
-                                                                               
+Print '(5X, I2, 10X, I3, 8X, A1, 8X, A11)', i, score, grade, remark
+End Do
+End program felicia_botwe                                                                               
